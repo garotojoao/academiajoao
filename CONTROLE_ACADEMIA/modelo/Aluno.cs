@@ -37,7 +37,7 @@ namespace CONTROLE_ACADEMIA.modelo
         public double Imc { 
             get
             {
-                return Peso / Math.Pow(Altura, 2);
+                return  Math.Round( Peso / Math.Pow(Altura, 2),2);
             }
         }
         public int Idade
