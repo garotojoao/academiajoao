@@ -49,5 +49,19 @@ namespace CONTROLE_ACADEMIA.modelo
                 return i;
             }
         }
+        public string Faixa
+        {
+            get
+            {
+                double i = Imc;
+                if (i < 18.5) return "Abaixo do Peso";
+                else if (i >= 18.5 && i < 25) return "Normal";
+                else if (i >= 25 && i < 30) return "Sobrepeso";
+                else if (i >= 30 && i < 35) return "Obesidade I";
+                else if (i >= 35 && i < 40) return "Obesidade II";
+                else if (i >= 40 && i < 50) return "Obesidade III";
+                else return "Mórbida";
+            }
+        }
     }
 }

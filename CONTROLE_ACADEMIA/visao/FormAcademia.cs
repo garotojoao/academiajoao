@@ -33,6 +33,13 @@ namespace CONTROLE_ACADEMIA.visao
             BN.BindingSource = bs;
             DG.DataSource = bs;
             DG.AutoResizeColumns();
+            DG.DefaultCellStyle.ForeColor = Color.FromArgb(80, 158, 28);
+            DG.DefaultCellStyle.BackColor = Color.FromArgb(77, 77, 77);
+            DG.DefaultCellStyle.SelectionForeColor = Color.FromArgb(75, 75, 75);
+            DG.DefaultCellStyle.SelectionBackColor = Color.FromArgb(80, 158, 28);
+
+            DG.Columns["Nascimento"].Visible = false;
+            DG.Columns["Documento"].Visible = false;
         }
     }
 }
