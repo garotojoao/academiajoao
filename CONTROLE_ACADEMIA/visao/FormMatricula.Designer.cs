@@ -38,9 +38,13 @@
             this.btnGerarMatricula = new System.Windows.Forms.Button();
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dtNascimento = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtPeso = new System.Windows.Forms.TextBox();
+            this.txtAltura = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.gbMatricula.SuspendLayout();
             this.SuspendLayout();
@@ -97,6 +101,10 @@
             // 
             // gbMatricula
             // 
+            this.gbMatricula.Controls.Add(this.txtAltura);
+            this.gbMatricula.Controls.Add(this.txtPeso);
+            this.gbMatricula.Controls.Add(this.label5);
+            this.gbMatricula.Controls.Add(this.label4);
             this.gbMatricula.Controls.Add(this.dtNascimento);
             this.gbMatricula.Controls.Add(this.label3);
             this.gbMatricula.Controls.Add(this.txtNome);
@@ -146,14 +154,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "NOME DO CLIENTE:";
             // 
-            // txtNome
-            // 
-            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(10, 118);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(452, 26);
-            this.txtNome.TabIndex = 4;
-            // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -174,6 +174,48 @@
             this.dtNascimento.Name = "dtNascimento";
             this.dtNascimento.Size = new System.Drawing.Size(452, 26);
             this.dtNascimento.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 215);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(147, 24);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "PESO:";
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(249, 215);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(147, 24);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "ALTURA:";
+            // 
+            // txtNome
+            // 
+            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.Location = new System.Drawing.Point(10, 118);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(452, 26);
+            this.txtNome.TabIndex = 4;
+            // 
+            // txtPeso
+            // 
+            this.txtPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPeso.Location = new System.Drawing.Point(9, 242);
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(176, 26);
+            this.txtPeso.TabIndex = 9;
+            // 
+            // txtAltura
+            // 
+            this.txtAltura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAltura.Location = new System.Drawing.Point(252, 242);
+            this.txtAltura.Name = "txtAltura";
+            this.txtAltura.Size = new System.Drawing.Size(184, 26);
+            this.txtAltura.TabIndex = 10;
             // 
             // FormMatricula
             // 
@@ -214,7 +256,11 @@
         private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.DateTimePicker dtNascimento;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtAltura;
+        private System.Windows.Forms.TextBox txtPeso;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtNome;
     }
 }
