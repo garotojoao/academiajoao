@@ -41,11 +41,11 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnRelatorio = new System.Windows.Forms.ToolStripButton();
+            this.btnMatricular = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.btnPesquisar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.btnExluir = new System.Windows.Forms.ToolStripButton();
+            this.BtnPesquisar = new System.Windows.Forms.ToolStripButton();
+            this.btnRelatorio = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.DG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BN)).BeginInit();
             this.BN.SuspendLayout();
@@ -60,7 +60,7 @@
             this.DG.Location = new System.Drawing.Point(12, 12);
             this.DG.Name = "DG";
             this.DG.ReadOnly = true;
-            this.DG.Size = new System.Drawing.Size(884, 338);
+            this.DG.Size = new System.Drawing.Size(1141, 449);
             this.DG.TabIndex = 0;
             // 
             // BN
@@ -81,19 +81,19 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
-            this.toolStripButton2,
+            this.btnMatricular,
             this.btnEditar,
-            this.toolStripButton3,
-            this.btnPesquisar,
+            this.btnExluir,
+            this.BtnPesquisar,
             this.btnRelatorio});
-            this.BN.Location = new System.Drawing.Point(0, 353);
+            this.BN.Location = new System.Drawing.Point(0, 464);
             this.BN.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.BN.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.BN.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.BN.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.BN.Name = "BN";
             this.BN.PositionItem = this.bindingNavigatorPositionItem;
-            this.BN.Size = new System.Drawing.Size(923, 85);
+            this.BN.Size = new System.Drawing.Size(1153, 85);
             this.BN.TabIndex = 1;
             this.BN.Text = "bindingNavigator1";
             // 
@@ -167,14 +167,15 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 85);
             // 
-            // btnRelatorio
+            // btnMatricular
             // 
-            this.btnRelatorio.AutoSize = false;
-            this.btnRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorio.Image")));
-            this.btnRelatorio.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRelatorio.Name = "btnRelatorio";
-            this.btnRelatorio.Size = new System.Drawing.Size(109, 41);
-            this.btnRelatorio.Text = "Relatório";
+            this.btnMatricular.AutoSize = false;
+            this.btnMatricular.Image = ((System.Drawing.Image)(resources.GetObject("btnMatricular.Image")));
+            this.btnMatricular.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnMatricular.Name = "btnMatricular";
+            this.btnMatricular.Size = new System.Drawing.Size(109, 41);
+            this.btnMatricular.Text = "Matricular";
+            this.btnMatricular.Click += new System.EventHandler(this.btnMatricular_Click);
             // 
             // btnEditar
             // 
@@ -184,39 +185,41 @@
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(109, 41);
             this.btnEditar.Text = "Editar";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // toolStripButton2
+            // btnExluir
             // 
-            this.toolStripButton2.AutoSize = false;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(109, 41);
-            this.toolStripButton2.Text = "Matricular";
+            this.btnExluir.AutoSize = false;
+            this.btnExluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExluir.Image")));
+            this.btnExluir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExluir.Name = "btnExluir";
+            this.btnExluir.Size = new System.Drawing.Size(109, 41);
+            this.btnExluir.Text = "Excluir";
+            this.btnExluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
-            // btnPesquisar
+            // BtnPesquisar
             // 
-            this.btnPesquisar.AutoSize = false;
-            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(109, 41);
-            this.btnPesquisar.Text = "Pesquisar";
+            this.BtnPesquisar.AutoSize = false;
+            this.BtnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("BtnPesquisar.Image")));
+            this.BtnPesquisar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnPesquisar.Name = "BtnPesquisar";
+            this.BtnPesquisar.Size = new System.Drawing.Size(109, 41);
+            this.BtnPesquisar.Text = "Pesquisar";
             // 
-            // toolStripButton3
+            // btnRelatorio
             // 
-            this.toolStripButton3.AutoSize = false;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(109, 41);
-            this.toolStripButton3.Text = "Excluir";
+            this.btnRelatorio.AutoSize = false;
+            this.btnRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorio.Image")));
+            this.btnRelatorio.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(109, 41);
+            this.btnRelatorio.Text = "Relatório";
             // 
             // FormAcademia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 438);
+            this.ClientSize = new System.Drawing.Size(1153, 549);
             this.Controls.Add(this.BN);
             this.Controls.Add(this.DG);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -249,9 +252,9 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton btnRelatorio;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton btnMatricular;
         private System.Windows.Forms.ToolStripButton btnEditar;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton btnPesquisar;
+        private System.Windows.Forms.ToolStripButton btnExluir;
+        private System.Windows.Forms.ToolStripButton BtnPesquisar;
     }
 }

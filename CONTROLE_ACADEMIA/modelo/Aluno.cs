@@ -63,5 +63,10 @@ namespace CONTROLE_ACADEMIA.modelo
                 else return "Mórbida";
             }
         }
+
+        internal static Aluno FirstOrDefault(Func<object, bool> value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
