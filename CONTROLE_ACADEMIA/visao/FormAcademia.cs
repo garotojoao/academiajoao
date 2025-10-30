@@ -19,23 +19,24 @@ namespace CONTROLE_ACADEMIA.visao
         public FormAcademia()
         {
             InitializeComponent();
+            
         }
         Academia BoaForma;
         BindingSource bs;
 
-      private void FormAcademia_Load(object sender, EventArgs e)
+        private void FormAcademia_Load(object sender, EventArgs e)
         {
             CriarBancoDados();
             BoaForma = new Academia();
             CarregarArquivoCSV();
             if (BoaForma.Alunos.Count == 0)
-                { 
-                    AlunoDB tabela = new AlunoDB();
-                    string res = tabela.Select(BoaForma.Alunos);
-                    if (res != "OK")
-                    {
-                        MessageBox.Show($"Erro: {res}");     
-                    }
+            {
+                AlunoDB tabela = new AlunoDB();
+                string res = tabela.Select(BoaForma.Alunos);
+                if (res != "OK")
+                {
+                    MessageBox.Show($"Erro: {res}");
+                }
             }
             bs = new BindingSource();
             bs.DataSource = BoaForma.Alunos;
@@ -53,18 +54,19 @@ namespace CONTROLE_ACADEMIA.visao
         }
 
         private void CriarBancoDados()
-        {   
+        {
             string file = "academia.sqlite";
-            if (!File.Exists(file)) 
+            if (!File.Exists(file))
             {
-              Servidor serv = new Servidor();
+                Servidor serv = new Servidor();
                 string res = serv.CreateDataBase(file);
                 if (res == "OK")
                 {
                     MessageBox.Show(res, "banco criado com sucesso");
                     CriarTabelas();
                 }
-                else                 {
+                else
+                {
                     MessageBox.Show($"falha:{res}");
                     Environment.Exit(0);// sai do programa
                 }
@@ -113,7 +115,7 @@ namespace CONTROLE_ACADEMIA.visao
                         Id = Int16.Parse(campos[0]),
                         Nome = campos[1],
                         Nascimento = Convert.ToDateTime(campos[2]),
-                        Altura = Double.Parse(campos[6].Replace(".",",")),
+                        Altura = Double.Parse(campos[6].Replace(".", ",")),
                         Peso = Double.Parse(campos[5].Replace(".", ",")),
                         Contato = campos[4],
                         Documento = campos[6],
@@ -140,9 +142,9 @@ namespace CONTROLE_ACADEMIA.visao
             }
         }
 
-        private void BtnExcluir_Click (object sender, EventArgs e)
-            {
-                Aluno Reg = (Aluno)bs.Current;
+        private void BtnExcluir_Click(object sender, EventArgs e)
+        {
+            Aluno Reg = (Aluno)bs.Current;
             DialogResult op =
                 MessageBox.Show($"Deseja excluir o aluno" + $"{Reg.Nome}", "Alerta",
                 MessageBoxButtons.YesNo,
@@ -154,7 +156,7 @@ namespace CONTROLE_ACADEMIA.visao
                 bs.MoveLast();
             }
 
-         }
+        }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -165,15 +167,19 @@ namespace CONTROLE_ACADEMIA.visao
             }
 
             Form1 ficha = new Form1();
-            ficha .Reg = (Aluno)bs.Current;
+            ficha.Reg = (Aluno)bs.Current;
+
+            Application.DoEvents(); // AMD RAYZEN
+            if (pbFoto.Image != null) pbFoto.Image.Dispose();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
             ficha.ShowDialog();
             if (ficha.Reg != null)
             {
-                BoaForma.Equals(ficha.Reg);
+                BoaForma.Editar(ficha.Reg);
                 bs.ResetBindings(true);
                 DG.AutoResizeColumns();
             }
-
         }
 
         private void BtnPesquisar_Click(object sender, EventArgs e)
@@ -189,6 +195,49 @@ namespace CONTROLE_ACADEMIA.visao
                 bs.Position = bs.IndexOf(Reg);
                 btnEditar_Click(sender, e);
             }
+        }
+
+        private void BtnPesquisar_Click_1(object sender, EventArgs e)
+        {
+            FormPesquisar pesquisa = new FormPesquisar();
+            pesquisa.BoaForma = BoaForma;
+            pesquisa.ShowDialog();
+            if (pesquisa.Cod != 0)
+            {
+                Aluno Reg = BoaForma.Alunos.FirstOrDefault(
+                    i => i.Id == pesquisa.Cod
+                    );
+                bs.Position = bs.IndexOf(Reg);
+                btnEditar_Click(sender, e);
+            }
+        }
+
+        private void CarregarFoto()
+        {
+            Aluno Reg = (Aluno)bs.Current;
+            string caminho = $"\\fotos\\{Reg.Id}" +
+              $".png";
+
+            if (File.Exists(Environment.CurrentDirectory +
+                       caminho))
+            {
+
+                var fs = new FileStream(Environment.CurrentDirectory +
+                       caminho, FileMode.Open,
+                    FileAccess.Read);
+                pbFoto.Image = Image.FromStream(fs);
+                lbNome.Text = Reg.Nome;
+            }
+            else
+            {
+                pbFoto.Image = null;
+                lbNome.Text = Reg.Nome;
+            }
+        }
+
+        private void DG_SelectionChanged(object sender, EventArgs e)
+        {
+            CarregarFoto();
         }
     }
 }

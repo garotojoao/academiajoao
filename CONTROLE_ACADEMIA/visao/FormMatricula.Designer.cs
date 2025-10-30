@@ -30,7 +30,6 @@
         {
             this.pbFoto = new System.Windows.Forms.PictureBox();
             this.btnEditarFoto = new System.Windows.Forms.Button();
-            this.btnCapturar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.gbMatricula = new System.Windows.Forms.GroupBox();
@@ -51,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnGerarMatricula = new System.Windows.Forms.Button();
             this.txtMatricula = new System.Windows.Forms.TextBox();
+            this.btnCapturar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.gbMatricula.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +62,7 @@
             this.pbFoto.Location = new System.Drawing.Point(14, 11);
             this.pbFoto.Name = "pbFoto";
             this.pbFoto.Size = new System.Drawing.Size(217, 195);
+            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbFoto.TabIndex = 0;
             this.pbFoto.TabStop = false;
             // 
@@ -74,16 +75,7 @@
             this.btnEditarFoto.TabIndex = 1;
             this.btnEditarFoto.Text = "EDITAR FOTO";
             this.btnEditarFoto.UseVisualStyleBackColor = true;
-            // 
-            // btnCapturar
-            // 
-            this.btnCapturar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCapturar.Location = new System.Drawing.Point(14, 263);
-            this.btnCapturar.Name = "btnCapturar";
-            this.btnCapturar.Size = new System.Drawing.Size(215, 45);
-            this.btnCapturar.TabIndex = 2;
-            this.btnCapturar.Text = "CAPTURAR";
-            this.btnCapturar.UseVisualStyleBackColor = true;
+            this.btnEditarFoto.Click += new System.EventHandler(this.btnEditarFoto_Click);
             // 
             // btnGravar
             // 
@@ -287,6 +279,17 @@
             this.txtMatricula.Size = new System.Drawing.Size(314, 26);
             this.txtMatricula.TabIndex = 0;
             // 
+            // btnCapturar
+            // 
+            this.btnCapturar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCapturar.Location = new System.Drawing.Point(14, 260);
+            this.btnCapturar.Name = "btnCapturar";
+            this.btnCapturar.Size = new System.Drawing.Size(217, 48);
+            this.btnCapturar.TabIndex = 2;
+            this.btnCapturar.Text = "CAPTURAR FOTO";
+            this.btnCapturar.UseVisualStyleBackColor = true;
+            this.btnCapturar.Click += new System.EventHandler(this.btnCapturar_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -294,10 +297,10 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(743, 484);
+            this.Controls.Add(this.btnCapturar);
             this.Controls.Add(this.gbMatricula);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
-            this.Controls.Add(this.btnCapturar);
             this.Controls.Add(this.btnEditarFoto);
             this.Controls.Add(this.pbFoto);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -317,7 +320,6 @@
 
         private System.Windows.Forms.PictureBox pbFoto;
         private System.Windows.Forms.Button btnEditarFoto;
-        private System.Windows.Forms.Button btnCapturar;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.GroupBox gbMatricula;
@@ -338,5 +340,6 @@
         private System.Windows.Forms.TextBox txtContato;
         private System.Windows.Forms.TextBox txtDocumento;
         private System.Windows.Forms.ComboBox CbSexo;
+        private System.Windows.Forms.Button btnCapturar;
     }
 }

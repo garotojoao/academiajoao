@@ -46,9 +46,12 @@
             this.btnExluir = new System.Windows.Forms.ToolStripButton();
             this.BtnPesquisar = new System.Windows.Forms.ToolStripButton();
             this.btnRelatorio = new System.Windows.Forms.ToolStripButton();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
+            this.lbNome = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BN)).BeginInit();
             this.BN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // DG
@@ -57,11 +60,13 @@
             this.DG.AllowUserToDeleteRows = false;
             this.DG.BackgroundColor = System.Drawing.Color.DarkKhaki;
             this.DG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DG.Location = new System.Drawing.Point(12, 12);
+            this.DG.Location = new System.Drawing.Point(12, 2);
             this.DG.Name = "DG";
             this.DG.ReadOnly = true;
-            this.DG.Size = new System.Drawing.Size(1141, 449);
+            this.DG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DG.Size = new System.Drawing.Size(703, 459);
             this.DG.TabIndex = 0;
+            this.DG.SelectionChanged += new System.EventHandler(this.DG_SelectionChanged);
             // 
             // BN
             // 
@@ -205,6 +210,7 @@
             this.BtnPesquisar.Name = "BtnPesquisar";
             this.BtnPesquisar.Size = new System.Drawing.Size(109, 41);
             this.BtnPesquisar.Text = "Pesquisar";
+            this.BtnPesquisar.Click += new System.EventHandler(this.BtnPesquisar_Click_1);
             // 
             // btnRelatorio
             // 
@@ -215,11 +221,32 @@
             this.btnRelatorio.Size = new System.Drawing.Size(109, 41);
             this.btnRelatorio.Text = "Relatório";
             // 
+            // pbFoto
+            // 
+            this.pbFoto.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.pbFoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFoto.Location = new System.Drawing.Point(833, 24);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(217, 195);
+            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFoto.TabIndex = 2;
+            this.pbFoto.TabStop = false;
+            // 
+            // lbNome
+            // 
+            this.lbNome.Location = new System.Drawing.Point(767, 259);
+            this.lbNome.Name = "lbNome";
+            this.lbNome.Size = new System.Drawing.Size(349, 44);
+            this.lbNome.TabIndex = 3;
+            this.lbNome.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // FormAcademia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 549);
+            this.Controls.Add(this.lbNome);
+            this.Controls.Add(this.pbFoto);
             this.Controls.Add(this.BN);
             this.Controls.Add(this.DG);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -234,6 +261,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BN)).EndInit();
             this.BN.ResumeLayout(false);
             this.BN.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,5 +284,7 @@
         private System.Windows.Forms.ToolStripButton btnEditar;
         private System.Windows.Forms.ToolStripButton btnExluir;
         private System.Windows.Forms.ToolStripButton BtnPesquisar;
+        private System.Windows.Forms.PictureBox pbFoto;
+        private System.Windows.Forms.Label lbNome;
     }
 }

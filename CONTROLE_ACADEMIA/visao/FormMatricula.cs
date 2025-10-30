@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,7 +87,6 @@ namespace CONTROLE_ACADEMIA.visao
 
         private void FormMatricula_Load(object sender, EventArgs e)
         {
-            Form1.SelectedIndex = 0;
 
             if (Reg != null)
             {
@@ -102,6 +102,7 @@ namespace CONTROLE_ACADEMIA.visao
                 if (Reg.Sexo == "M") CbSexo.SelectedIndex = 0;
                 if (Reg.Sexo == "F") CbSexo.SelectedIndex = 1;
                 if (Reg.Sexo == "I") CbSexo.SelectedIndex = 2;
+                CarregarFoto();
 
             }
         }
@@ -110,6 +111,65 @@ namespace CONTROLE_ACADEMIA.visao
         {
             Reg = null;
             this.Dispose();
+        }
+
+        private void btnEditarFoto_Click(object sender, EventArgs e)
+        {
+            string caminho = $"\\fotos\\{txtMatricula.Text}" + 
+                $".png";
+            if (Reg != null)
+            { 
+                OpenFileDialog file = new OpenFileDialog();
+                file.Filter = "Fotos |*.png";
+                file.FileName = "";
+                file.ShowDialog();
+                if (File.Exists(file.FileName)) {
+                    
+
+                    if (File.Exists(Environment.CurrentDirectory + caminho))
+                    {
+                        Application.DoEvents();
+                        pbFoto.Image.Dispose();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        File.Delete(Environment.CurrentDirectory + caminho);
+                    }
+                    File.Copy(file.FileName, Environment.CurrentDirectory + caminho);
+                    CarregarFoto();
+                }
+            }
+        }
+
+        private void CarregarFoto()
+        {
+
+            string caminho = $"\\fotos\\{txtMatricula.Text}" +
+               $".png";
+
+            if (File.Exists(Environment.CurrentDirectory +
+                       caminho))
+            {
+
+                var fs = new FileStream(Environment.CurrentDirectory +
+                       caminho, FileMode.Open,
+                    FileAccess.Read);
+                pbFoto.Image = Image.FromStream(fs);
+            }
+        }
+
+
+        private void btnCapturar_Click_1(object sender, EventArgs e)
+        {
+            FormWebCam webCam = new FormWebCam();
+            string caminho = Environment.CurrentDirectory +
+                $"\\fotos\\{txtMatricula.Text}" + $".png";
+            Application.DoEvents(); // AMD RAYZEN
+            pbFoto.Image.Dispose();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            webCam.caminho = caminho;
+            webCam.ShowDialog();
+            CarregarFoto();
         }
     }
 }
